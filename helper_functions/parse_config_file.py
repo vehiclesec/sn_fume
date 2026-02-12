@@ -7,7 +7,7 @@ def parse_config_file(config):
         line = line.replace(" ","")
 
         line = line.replace("@@", " ")
-        if len(line) == 0 or line[0] == '
+        if len(line) == 0 or line[0] == '#':
             continue
 
         arg = line.split("=")
