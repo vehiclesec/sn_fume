@@ -7,7 +7,6 @@ import helper_functions.print_verbosity as pv
 
 import fume.handle_console_response as fcr
 
-# Check if the connection is a live
 def check_connection():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     while True:
@@ -20,8 +19,6 @@ def check_connection():
         except ConnectionResetError:
             continue
 
-
-# Run the target, unless the start command is left blank
 def run_target():
     if g.START_COMMAND == "":
         return
@@ -32,7 +29,6 @@ def run_target():
 
     thread.start()
 
-    # Try to connect to the target
     pv.normal_print("Starting target...")
     for i in range(10):
         pv.verbose_print("Attempt %d" % (i + 1))
@@ -41,6 +37,6 @@ def run_target():
         if alive:
             pv.normal_print("Target started successfully!")
             return
-    
+
     pv.print_error("It seems the target did not start successfully.")
     exit(-1)

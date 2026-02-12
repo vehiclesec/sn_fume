@@ -11,7 +11,7 @@ def create_crash_directory():
 def dump_request_queue():
     if len(g.request_queue) == 0:
         return
-        
+
     dt = str(datetime.datetime.now().timestamp())
     filename = g.CRASH_DIRECTORY + "/" + g.CRASH_FILENAME_PREFIX + "-" + dt
     f = open(filename, "w")

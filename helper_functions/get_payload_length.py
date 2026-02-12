@@ -1,7 +1,5 @@
 import globals as g
 
-# Get the byte length of the payload, which might be
-# represented as a list of strings, a bytearray, or a list of packet objects
 def get_payload_length():
     if len(g.payload) == 0:
         return 0

@@ -5,7 +5,7 @@ import string
 from packet import Packet
 from packet import packetTest
 from properties import Properties
-        
+
 class ConnectFlags(Packet):
     def __init__(self):        
         self.will = random.getrandbits(1)
@@ -37,7 +37,6 @@ class Connect(Packet):
         ]
 
         self.prependPayloadLength()
-
 
 if __name__ == "__main__":
     packetTest([Connect], 10)

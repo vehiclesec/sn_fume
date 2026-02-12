@@ -1,7 +1,6 @@
-# parsers/protocol_parser.py
 
 class ProtocolParser:
-    # Helper methods remain the same as they use self.index
+
     def insertByteNoIdentifier(self, fieldName, payload, index, use_G_field):
         return self.insertByte(fieldName, payload, index - 2, use_G_field)
 
@@ -30,8 +29,7 @@ class ProtocolParser:
         return payload[index:index+(numBytes * 2)]
 
     def remainingLengthToInteger(self):
-        # In MQTT-SN, the length field includes itself. 
-        # We return the total length in bytes.
+
         return int(self.length_value, 16)
 
     def __init__(self, payload, protocol_version):
@@ -39,16 +37,15 @@ class ProtocolParser:
         self.protocol_version = protocol_version
         self.G_fields = {}
         self.H_fields = {}
-        
-        # MQTT-SN Length Parsing
+
         first_byte = int(self.indexToByte(0, 1), 16)
         if first_byte == 1:
-            # 3-byte length: 0x01 followed by 2-byte length
+
             self.length_value = self.indexToByte(2, 2)
             self.msg_type = self.indexToByte(6, 1)
             self.index = 8 
         else:
-            # 1-byte length
+
             self.length_value = self.indexToByte(0, 1)
             self.msg_type = self.indexToByte(2, 1)
             self.index = 4

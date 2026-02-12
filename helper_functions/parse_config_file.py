@@ -1,21 +1,15 @@
 import globals as g
 
-# Parse the supplied config file
 def parse_config_file(config):
     for line in config:
 
-        # Only valid key-value pairs
         line = line.strip()
         line = line.replace(" ","")
 
-        # The user can use @@ to re-insert spaces if they need to - for 
-        # example, if the start command requires multiple words (e.g.,
-        # "node <script location>")
         line = line.replace("@@", " ")
-        if len(line) == 0 or line[0] == '#':
+        if len(line) == 0 or line[0] == '
             continue
-    
-        # Split into key-value pairs
+
         arg = line.split("=")
         if len(arg) != 2:
             continue
@@ -51,13 +45,13 @@ def parse_config_file(config):
             g.b = float(arg[1])
 
         elif arg[0][0] == 'c':
-            # Assertion to make sure we give a proper ci key
+
             assert arg[0][1:] in [str(i) for i in range(1, 16)]
             index = int(arg[0][1:]) - 1
             g.c[index] = float(arg[1])
 
         elif arg[0][0] == 'd':
-            # Assertion to make sure we give a proper di key
+
             assert arg[0][1:] in [str(i) for i in range(1, 5)]
             index = int(arg[0][1:]) - 1
             g.d[index] = float(arg[1])

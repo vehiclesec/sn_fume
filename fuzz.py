@@ -17,21 +17,17 @@ import fume.markov_model as mm
 import fume.fuzzing_engine as fe
 import fume.run_target as rt
 
-# Calculate X1 from the construction intensity
 def calculate_X1():
     g.X1 = 1 / g.CONSTRUCTION_INTENSITY
 
-# Calculate X2 from the fuzzing intensity
 def calculate_X2():
     g.X2 = 1 - g.FUZZING_INTENSITY
 
-# Calculate X3 from the fuzzing intensity
 def calculate_X3():
     g.X3 = 1 - (2 * math.log(1 + g.FUZZING_INTENSITY, 10))
 
 def main():
-    # Try to parse the supplied config file.
-    # If one is not supplied, use the default values.
+
     try:
         config_f = open(sys.argv[1], 'r')
         config = config_f.readlines()
@@ -43,7 +39,6 @@ def main():
     except IndexError:
         pass
 
-    # Calculate X1, X2, and X3 only if the user did not supply those values
     if g.user_supplied_X[0] == 0:
         calculate_X1()
     if g.user_supplied_X[1] == 0:
@@ -51,22 +46,16 @@ def main():
     if g.user_supplied_X[2] == 0:
         calculate_X3()
 
-    # Validate all parameters
     vfp.validate_all()
 
-    # Create crash directory if needed
     cl.create_crash_directory()
 
-    # Print fuzzing configuration
     pc.print_configuration()
 
-    # Initialize Markov Model
     markov_model = mm.initialize_markov_model()
 
-    # Start the target
     rt.run_target()
 
-    # Run the fuzzing loop
     fe.run_fuzzing_engine(markov_model)
 
 if __name__ == "__main__":

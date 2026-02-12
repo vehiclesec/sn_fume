@@ -10,9 +10,7 @@ class Packet:
 
     def toList(self):
         l = []
-        #print("\n\n\n")
-        #print(self.payload)
-        #print("\n\n\n")
+
         for p in self.payload:
             for n in p:
                 if type(n) == list:
@@ -20,11 +18,9 @@ class Packet:
                         l.append(x)
                 else:
                     l.append(n)
-        #print("\n\n\n")
-        #print(l)
-        #print("\n\n\n")
+
         return l
-        
+
     def toString(self):
         return "".join(self.toList())
 
@@ -48,18 +44,15 @@ class Packet:
 
         return varByte
 
-    # Calculate the length of the payload and add it to the beginning 
-    # of the payload.
     def prependPayloadLength(self):
         total_len = self.getByteLength()
         if total_len < 255:
-            # add 1 byte for the length field itself
+
             payload_length = "%.2x" % (total_len + 1)
         else:
-            # according to SN specification, first byte must be 0x01, next two bytes represent the length
+
             payload_length = "01%.4x" % (total_len + 3)
 
-        #payload_length = self.toVariableByte("%x" % (self.getByteLength()))
         self.payload.insert(0, payload_length)
 
     def getAlphanumHexString(self, stringLength, userstring = None):
@@ -69,10 +62,6 @@ class Packet:
         alphanum = string.ascii_letters + string.digits
         return ["%.2x" % ord(random.choice(alphanum)) for i in range(stringLength)]
 
-    # identifier: a 1-byte integer (may be null)
-    # stringLength: a 2-byte integer
-    # userstring: an optional user-defined string. If not defined, the string is random.
-    # Return: an encoding in the format [ID, Len, String] or [Len, String]
     def toEncodedString(self, identifier, stringLength, userstring = None):
         if userstring is None:
             userstring = self.getAlphanumHexString(stringLength)
@@ -82,24 +71,11 @@ class Packet:
             return ["%.4x" % len(userstring), userstring]
         return ["%.2x" % identifier, "%.4x" % len(userstring), userstring]
 
-    # identifier: a 1-byte integer
-    # string1Length/string2Length: 2-byte integers
-    # Return: an encoding in the format [ID, Len1, String1, Len2, String2]
     def toEncodedStringPair(self, identifier, string1Length, string2Length):
         return ["%.2x" % identifier, "%.4x" % string1Length, self.getAlphanumHexString(string1Length), "%.4x" % string2Length, self.getAlphanumHexString(string2Length)]
 
-    # identifier: a 1-byte integer (may be null)
-    # byteLength: a 2-byte integer
-    # omitLength: bool, means the byte length field is excluded
-    # maxBits: an integer in the range [0-8]. Dictates the max number of 1-bits per byte.
-    # minBits: an integer in the range [0-255]. Dictates the maximum possible size per byte.
-    # Return: a binary encoding in one of the following formats:
-    #   - [ID, Len, Bytes]
-    #   - [ID, Bytes]
-    #   - [Len, Bytes]
-    #   - [Bytes]
     def toBinaryData(self, identifier, byteLength, omitLength = False, maxBits = 8, minValue = 0):
-        
+
         if identifier is None:
             fullData = ["%.4x" % byteLength, ["%.2x" % max(minValue, random.getrandbits(maxBits)) for i in range(byteLength)]]
             if omitLength:
@@ -113,12 +89,10 @@ class Packet:
             else:
                 return fullData
 
-    # Append the payload with newPacket 50% of the time
     def appendPayloadRandomly(self, newPacket):
         if random.getrandbits(1) == 0:
             self.payload.append(newPacket)
 
-# Send a payload to a broker.
 def sendToBroker(host, port, payload, silenceError = False, killOnError = True):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
