@@ -282,6 +282,7 @@ def handle_state(mm):
 # mm: the markov model
 def run_fuzzing_engine(mm):
     control = True
+    # test
     while True:
         model_types = ['mutation', 'generation']
         mm.model_type = random.choices(model_types, weights=[g.CHOOSE_MUTATION, 1 - g.CHOOSE_MUTATION])[0]
