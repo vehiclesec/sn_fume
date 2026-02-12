@@ -12,6 +12,7 @@ def handle_network_response(recv):
 
     # For MQTT-SN, protocol version is typically 1 (v1.2)
     if g.protocol_version == 0:
+        print("\n\nTRUE\n\n")
         # Note: You may need to update determine_protocol_version to handle SN
         g.protocol_version = hpv.determine_protocol_version(recv.hex())
         

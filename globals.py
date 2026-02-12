@@ -10,6 +10,9 @@ d = [1/3, 1/3, 1/3, 1/8]
 TARGET_ADDR = "0.0.0.0"
 TARGET_PORT = 1884
 
+# Fuzzer network parameters
+SOURCE_PORT = 0
+
 # Configuration variables
 CHOOSE_MUTATION = 0
 PACKET_SELECTION_UNIFORM_DISTRIBUTION = 1
@@ -34,7 +37,7 @@ VERBOSITY = 3
 payload = []
 
 # The protocol version of the current payload
-protocol_version = 0
+protocol_version = 1
 
 # Response logs - each is a dictionary where the 
 # key is a request and the value is the response

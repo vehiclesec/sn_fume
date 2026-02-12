@@ -28,6 +28,7 @@ def corpus_to_array(file):
 # Send the payload to the target and wait for a response
 def handle_send_state():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.bind(("", g.SOURCE_PORT))
     s.settimeout(0.05)
 
     # TODO make this part optional
@@ -191,7 +192,7 @@ def handle_state(mm):
 
     # In state S0, reset the payload
     if state == 'S0':
-        g.protocol_version = 1
+        g.SOURCE_PORT = random.randint(49152, 65535)
     
     if state == 'S1':
         g.payload = []
@@ -298,7 +299,7 @@ def run_fuzzing_engine(mm):
 
         # Set protocol version to 0 so that we are forced
         # to determine it
-        g.protocol_version = 0
+        #g.protocol_version = 0
 
         # Run until we hit the final state
         while mm.current_state.name != 'Sf':
