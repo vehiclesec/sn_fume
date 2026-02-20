@@ -1,0 +1,5 @@
+--- Crash Triggered By Console Message ---
+[36mhappy_heron |[0m 2026-02-20t20:04:41.702508+00:00 [error] clientid: udeahmtff, msg: parse_frame_failed, peername: 127.0.0.1:52420, reason: unkown_message_type, stacktrace: [{emqx_mqttsn_frame,parse_var,2,[{file,"emqx_mqttsn_frame.erl"},{line,119}]},{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,54}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<22,49,218,85,214,207,29,195,214,39,247,55,58,108,200,120,161,104,219,79,79,219>>
+
+--- Request Queue ---
+["180404012e987737753446376554534b7470744e44536b49", "15040c01425d7064436d2f4654655f667265417258", "0218", "10040801d40f756445610d484d544646", "1631da55d6cf1dc3d627f7373a6cc878a168db4f4fdb"]
