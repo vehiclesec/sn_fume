@@ -1,10 +1,12 @@
+import time
+
 from generators.connect import Connect
 from generators.publish import Publish
 from generators.disconnect import Disconnect
 from generators.register import Register
 
-import handle_network_response as hnr
-import requests_queue as rq
+import fume.handle_network_response as hnr
+import fume.requests_queue as rq
 
 import helper_functions.print_verbosity as pv
 import helper_functions.determine_protocol_version as dpv
@@ -163,57 +165,58 @@ def handle_state(mm):
 
     if state == 'S0':
         g.SOURCE_PORT = random.randint(49152, 65535)
+        g.request_queue = []
 
     if state == 'S1':
         g.payload = []
 
-    elif state == 'RESPONSE_LOG':
-        handle_response_log_state(mm)
-
+#    elif state == 'RESPONSE_LOG':
+#        handle_response_log_state(mm)
+#
     elif state == 'CONNECT':
         handle_select_or_generation_state(mm, Connect)
-
-    elif state == 'CONNACK':
-        handle_select_or_generation_state(mm, Connack)
-
+#
+#    elif state == 'CONNACK':
+#        handle_select_or_generation_state(mm, Connack)
+#
     elif state == 'PUBLISH':
         handle_select_or_generation_state(mm, Publish)
-
-    elif state == 'PUBACK':
-        handle_select_or_generation_state(mm, Puback)
-
-    elif state == 'PUBREC':
-        handle_select_or_generation_state(mm, Pubrec)
-
-    elif state == 'PUBREL':
-        handle_select_or_generation_state(mm, Pubrel)
-
-    elif state == 'PUBCOMP':
-        handle_select_or_generation_state(mm, Pubcomp)
-
-    elif state == 'SUBSCRIBE':
-        handle_select_or_generation_state(mm, Subscribe)
-
-    elif state == 'SUBACK':
-        handle_select_or_generation_state(mm, Suback)
-
-    elif state == 'UNSUBSCRIBE':
-        handle_select_or_generation_state(mm, Unsubscribe)
-
-    elif state == 'UNSUBACK':
-        handle_select_or_generation_state(mm, Unsuback)
-
-    elif state == 'PINGREQ':
-        handle_select_or_generation_state(mm, Pingreq)
-
-    elif state == 'PINGRESP':
-        handle_select_or_generation_state(mm, Pingresp)
-
+#
+#    elif state == 'PUBACK':
+#        handle_select_or_generation_state(mm, Puback)
+#
+#    elif state == 'PUBREC':
+#        handle_select_or_generation_state(mm, Pubrec)
+#
+#    elif state == 'PUBREL':
+#        handle_select_or_generation_state(mm, Pubrel)
+#
+#    elif state == 'PUBCOMP':
+#        handle_select_or_generation_state(mm, Pubcomp)
+#
+#    elif state == 'SUBSCRIBE':
+#        handle_select_or_generation_state(mm, Subscribe)
+#
+#    elif state == 'SUBACK':
+#        handle_select_or_generation_state(mm, Suback)
+#
+#    elif state == 'UNSUBSCRIBE':
+#        handle_select_or_generation_state(mm, Unsubscribe)
+#
+#    elif state == 'UNSUBACK':
+#        handle_select_or_generation_state(mm, Unsuback)
+#
+#    elif state == 'PINGREQ':
+#        handle_select_or_generation_state(mm, Pingreq)
+#
+#    elif state == 'PINGRESP':
+#        handle_select_or_generation_state(mm, Pingresp)
+#
     elif state == 'DISCONNECT':
         handle_select_or_generation_state(mm, Disconnect)
-
-    elif state == 'AUTH':
-        handle_select_or_generation_state(mm, Auth)
+#
+#    elif state == 'AUTH':
+#        handle_select_or_generation_state(mm, Auth)
 
     elif state == 'S2':
         handle_s2_state(mm)
@@ -257,4 +260,6 @@ def run_fuzzing_engine(mm):
             pv.verbose_print("In state %s" % mm.current_state.name)
             handle_state(mm)
             mm.next_state()
+        
+        time.sleep(5)
         control = False

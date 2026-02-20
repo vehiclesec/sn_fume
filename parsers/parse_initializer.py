@@ -1,8 +1,8 @@
 
-from protocol_parser import ProtocolParser
-from connack_parser import ConnackParser
-from puback_parser import PubackParser
-from regack_parser import RegackParser
+from parsers.protocol_parser import ProtocolParser
+from parsers.connack_parser import ConnackParser
+from parsers.puback_parser import PubackParser
+from parsers.regack_parser import RegackParser
 
 class ParseInitializer:
     def __init__(self, payload, protocol_version):

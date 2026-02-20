@@ -2,9 +2,9 @@ import random
 import binascii
 import string
 
-from packet import Packet
-from packet import packetTest
-from properties import Properties
+from .packet import Packet
+from .packet import packetTest
+from .properties import Properties
 
 class ConnectFlags(Packet):
     def __init__(self):        

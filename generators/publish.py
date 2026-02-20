@@ -1,6 +1,6 @@
 
 import random
-from packet import Packet
+from .packet import Packet
 
 class PublishFlags(Packet):
     def __init__(self):

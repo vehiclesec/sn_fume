@@ -40,7 +40,8 @@ REQUEST_QUEUE_SIZE = 5
 TRIAGE_FAST = 1
 TRIAGE_MAX_DEPTH = 3
 
-CRASH_DIRECTORY = "crashes"
-CRASH_FILENAME_PREFIX = "target"
+import os
+CRASH_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+CRASH_FILENAME_PREFIX = "emqx"
 
 MAXIMUM_PAYLOAD_LENGTH = 10000

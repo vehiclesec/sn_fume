@@ -1,4 +1,4 @@
-from packet import Packet
+from .packet import Packet
 import random
 
 class Properties(Packet):

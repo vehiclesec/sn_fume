@@ -1,5 +1,5 @@
 
-from protocol_parser import ProtocolParser as Parser
+from parsers.protocol_parser import ProtocolParser as Parser
 
 class ConnackParser(Parser):
     def __init__(self, payload, protocol_version):

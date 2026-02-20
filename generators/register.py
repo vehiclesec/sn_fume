@@ -1,6 +1,6 @@
 
 import random
-from packet import Packet
+from .packet import Packet
 
 class Register(Packet):
     def __init__(self, protocol_version=None):

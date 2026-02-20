@@ -2,8 +2,8 @@ import globals as g
 import helper_functions.print_verbosity as pv
 
 def push(request):
-    if len(g.request_queue) == g.REQUEST_QUEUE_SIZE:
-        g.request_queue.pop(0)
+    #if len(g.request_queue) == g.REQUEST_QUEUE_SIZE:
+    #    g.request_queue.pop(0)
     g.request_queue.append(request)
 
 def print_queue():

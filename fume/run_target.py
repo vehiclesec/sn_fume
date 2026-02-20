@@ -30,6 +30,7 @@ def run_target():
     thread.start()
 
     pv.normal_print("Starting target...")
+    time.sleep(15)
     for i in range(10):
         pv.verbose_print("Attempt %d" % (i + 1))
         time.sleep(g.TARGET_START_TIME * ((i + 1)/5))
