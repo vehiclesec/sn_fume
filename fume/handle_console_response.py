@@ -17,7 +17,7 @@ def handle_console_response(proc):
         decoded_line = line.decode('utf-8', errors='ignore').lower()
         
         if "error" in decoded_line:
-            pv.normal_print(f"Keyword 'error' detected in console message: {decoded_line.strip()}")
+            pv.normal_print(f"\n\n\nKeyword 'error' detected in console message: {decoded_line.strip()}\n\n\n")
             cl.create_crash_directory()
             cl.dump_request_queue(console_message=decoded_line)
 

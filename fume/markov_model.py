@@ -78,6 +78,7 @@ def initialize_markov_model():
         mm.state_mutate,
         mm.state_send
     ]
+    #mm.state_s2.next_prob = [0, 0, 0, 1]
     mm.state_s2.next_prob = [g.d[0], g.d[1], g.d[2], g.X2]
 
     mm.state_inject.next = [mm.state_bof, mm.state_nonbof]
@@ -95,7 +96,9 @@ def initialize_markov_model():
     mm.state_nonbof.next = [mm.state_s2]
     mm.state_nonbof.next_prob = [1]
 
-    mm.state_send.next = [mm.state_s2, mm.state_s1]
-    mm.state_send.next_prob = [1 - g.X3, g.X3]
+    mm.state_send.next = [mm.state_s1]
+    mm.state_send.next_prob = [1]
+    #mm.state_send.next = [mm.state_s2, mm.state_s1]
+    #mm.state_send.next_prob = [1 - g.X3, g.X3]
 
     return mm

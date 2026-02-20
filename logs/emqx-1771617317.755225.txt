@@ -1,0 +1,5 @@
+--- Crash Triggered By Console Message ---
+[36mhappy_heron |[0m 2026-02-20t19:55:17.753986+00:00 [error] clientid: <<"óy©86gtz1ouuqixc">>, msg: unexpected_info, peername: 127.0.0.1:59107, info: {sock_closed,normal}
+
+--- Request Queue ---
+["16040401e199f359a9383667547a314f755551495843", "041840cf", "110c4219a0364c2fb8bd839657f01fbc35", "0218"]

@@ -1,0 +1,5 @@
+--- Crash Triggered By Console Message ---
+[36mhappy_heron |[0m 2026-02-20t19:57:55.297459+00:00 [error] msg: parse_frame_failed, peername: 127.0.0.1:53939, reason: unkown_message_type, stacktrace: [{emqx_mqttsn_frame,parse_var,2,[{file,"emqx_mqttsn_frame.erl"},{line,119}]},{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,54}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<48,247,175,208,1,141,79,4,83,116,58,11,4,0,252,177,220,48,155,215,47,38,117,1,235,155,173,132,210,212,21,186,125,21,30,218,102,72,170,2,53,239,77,99,206,193,55,110>>
+
+--- Request Queue ---
+["30f7afd0018d4f0453743a0b0400fcb1dc309bd72f267501eb9bad84d2d415ba7d151eda6648aa0235ef4d63cec1376e"]

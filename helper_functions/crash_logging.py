@@ -19,8 +19,15 @@ def dump_request_queue(console_message=None):
         f.write("--- Crash Triggered By Console Message ---\n")
         f.write(console_message.strip() + "\n\n")
         f.write("--- Request Queue ---\n")
+
+    f.write("[")
     for req in g.request_queue:
-        f.write(req.hex() + "\n")
+        if req == g.request_queue[-1]:
+            reqf = '"' + req.hex() + '"'
+        else:
+            reqf = '"' + req.hex() + '"' + ', '
+        f.write(reqf)
+    f.write("]")
     f.close()
 
     print("Logged request queue to %s" % filename)

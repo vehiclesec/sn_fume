@@ -1,0 +1,5 @@
+--- Crash Triggered By Console Message ---
+[36mhappy_heron |[0m 2026-02-20t19:54:46.503495+00:00 [error] msg: parse_frame_failed, peername: 127.0.0.1:51584, reason: unkown_message_type, stacktrace: [{emqx_mqttsn_frame,parse_var,2,[{file,"emqx_mqttsn_frame.erl"},{line,119}]},{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,54}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<15,57,50,27,84,130,35,14,66,98,69,102,32,193,162>>
+
+--- Request Queue ---
+["1c0400018467545532644f634a6b537666674b65706d764a78755776", "140404011f82335042384d7973556d6539ac7058", "0a0a0000aaf94a637757", "130c020f6c296aa2520ec426ffe7948a4664eb", "0a0a0000e3ae3546734a", "0f39321b5482230e4262456620c1a2"]

@@ -32,6 +32,20 @@ def handle_send_state():
 
     g.payload = g.payload[:g.MAXIMUM_PAYLOAD_LENGTH]
 
+    if len(g.payload) > 0:
+        if g.payload[0] == 0x01 and len(g.payload) >= 3:
+            content = g.payload[3:]
+        else:
+            content = g.payload[1:]
+            
+        new_len = len(content)
+        
+        if new_len + 1 < 256:
+            g.payload = bytearray([new_len + 1]) + content
+        else:
+            total_len = new_len + 3
+            g.payload = bytearray([0x01, (total_len >> 8) & 0xFF, total_len & 0xFF]) + content
+    
     try:
         pv.verbose_print("Sending payload to the target: %s" % binascii.hexlify(g.payload))
         s.sendto(g.payload, (g.TARGET_ADDR, g.TARGET_PORT))
@@ -214,6 +228,9 @@ def handle_state(mm):
 #
     elif state == 'DISCONNECT':
         handle_select_or_generation_state(mm, Disconnect)
+    
+    elif state == 'REGISTER':
+        handle_select_or_generation_state(mm, Register)
 #
 #    elif state == 'AUTH':
 #        handle_select_or_generation_state(mm, Auth)
@@ -256,6 +273,7 @@ def run_fuzzing_engine(mm):
 
         mm.current_state = mm.state_s0
 
+        print("\n\n\n\n\n")
         while mm.current_state.name != 'Sf':
             pv.verbose_print("In state %s" % mm.current_state.name)
             handle_state(mm)
