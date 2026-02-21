@@ -8,7 +8,7 @@ def handle_network_response(recv):
         return
 
     if g.protocol_version == 0:
-        print("\n\nTRUE\n\n")
+        #print("\n\nTRUE\n\n")
 
         g.protocol_version = hpv.determine_protocol_version(recv.hex())
 

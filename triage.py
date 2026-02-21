@@ -204,7 +204,7 @@ if __name__ == "__main__":
     run = 1
     first_start_size = len(input)
     while True:
-        pv.normal_print("RUN 
+        pv.normal_print("RUN #%d" % run)
         start_size = len(input)
         input, _ = triage(input)
         end_size = len(input)

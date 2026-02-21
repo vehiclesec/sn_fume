@@ -1,0 +1,42 @@
+Starting happy_heron ... 
+Starting happy_heron ... done
+Attaching to happy_heron
+[36mhappy_heron |[0m WARNING: Default (insecure) Erlang cookie is in use.
+[36mhappy_heron |[0m WARNING: Configure node.cookie in /opt/emqx/etc/emqx.conf or override from environment variable EMQX_NODE__COOKIE
+[36mhappy_heron |[0m WARNING: NOTE: Use the same cookie for all nodes in the cluster.
+[36mhappy_heron |[0m [warning] unknown_env_vars: ["EMQX_GATEWAY__MQTTSN__ENABLED"]
+[36mhappy_heron |[0m EMQX_GATEWAY__MQTTSN__LISTENERS__UDP__DEFAULT__BIND [gateway.mqttsn.listeners.udp.default.bind]: 1884
+[36mhappy_heron |[0m EMQX_RPC__PORT_DISCOVERY [rpc.port_discovery]: manual
+[36mhappy_heron |[0m EMQX_NODE__NAME [node.name]: emqx@127.0.1.1
+[36mhappy_heron |[0m 2026-02-21T15:29:04.925005+00:00 [warning] unknown_env_vars: ["EMQX_GATEWAY__MQTTSN__ENABLED"]
+[36mhappy_heron |[0m Listener tcp:default on 0.0.0.0:1883 started.
+[36mhappy_heron |[0m Listener ssl:default on 0.0.0.0:8883 started.
+[36mhappy_heron |[0m Listener ws:default on 0.0.0.0:8083 started.
+[36mhappy_heron |[0m Listener wss:default on 0.0.0.0:8084 started.
+[36mhappy_heron |[0m Gateway mqttsn:udp:default on :1884 started.
+[36mhappy_heron |[0m 
+[36mhappy_heron |[0m =====================================================================
+[36mhappy_heron |[0m You are currently using the EMQX Community License included with this software.
+[36mhappy_heron |[0m Permitted Use: Free use of a single node in your internal environment.
+[36mhappy_heron |[0m What Requires a Different License:
+[36mhappy_heron |[0m  - Clustered deployments (more than one node).
+[36mhappy_heron |[0m  - Commercial use in SaaS, hosted services, or embedded/resold products.
+[36mhappy_heron |[0m To enable clustering or use EMQX for external commercial purposes, a commercial license is required.
+[36mhappy_heron |[0m Visit https://emqx.com/apply-licenses/emqx to apply for a license.
+[36mhappy_heron |[0m (Clustering for non-profit or educational purposes may qualify for a free license - please inquire via the link above)
+[36mhappy_heron |[0m =====================================================================
+[36mhappy_heron |[0m Listener http:dashboard on :18083 started.
+[36mhappy_heron |[0m EMQX Enterprise 6.0.0 is running now!
+[36mhappy_heron |[0m 2026-02-21T15:31:35.652854+00:00 [error] msg: parse_frame_failed, peername: 127.0.0.1:33100, reason: malformed_message_len, stacktrace: [{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,56}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<24,146>>
+[36mhappy_heron |[0m 2026-02-21T15:33:25.322427+00:00 [error] msg: parse_frame_failed, peername: 127.0.0.1:53479, reason: malformed_message_len, stacktrace: [{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,56}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<2,24,146>>
+[36mhappy_heron |[0m 2026-02-21T15:34:50.721479+00:00 [error] msg: parse_frame_failed, peername: 127.0.0.1:44282, reason: unkown_message_type, stacktrace: [{emqx_mqttsn_frame,parse_var,2,[{file,"emqx_mqttsn_frame.erl"},{line,119}]},{emqx_mqttsn_frame,parse,3,[{file,"emqx_mqttsn_frame.erl"},{line,54}]},{emqx_mqttsn_frame,parse,2,[{file,"emqx_mqttsn_frame.erl"},{line,51}]},{emqx_gateway_conn,parse_incoming,3,[{file,"emqx_gateway_conn.erl"},{line,718}]},{emqx_gateway_conn,parse_incoming,2,[{file,"emqx_gateway_conn.erl"},{line,711}]},{emqx_gateway_conn,process_msg,2,[{file,"emqx_gateway_conn.erl"},{line,414}]},{emqx_gateway_conn,handle_recv,3,[{file,"emqx_gateway_conn.erl"},{line,377}]},{proc_lib,wake_up,3,[{file,"proc_lib.erl"},{line,340}]}], at_state: #{}, input_bytes: <<3,24,146>>
+[36mhappy_heron |[0m 2026-02-21T15:35:47+00:00 received_terminate_signal, shutting down now.
+[36mhappy_heron |[0m 2026-02-21T15:35:47.499154+00:00 [critical] msg: received_terminate_signal
+[36mhappy_heron |[0m Stop listener http:dashboard on :18083 successfully.
+[36mhappy_heron |[0m Gateway mqttsn:udp:default on :1884 stopped.
+[36mhappy_heron |[0m Listener tcp:default on 0.0.0.0:1883 stopped.
+[36mhappy_heron |[0m Listener ssl:default on 0.0.0.0:8883 stopped.
+[36mhappy_heron |[0m Listener ws:default on 0.0.0.0:8083 stopped.
+[36mhappy_heron |[0m Listener wss:default on 0.0.0.0:8084 stopped.
+[36mhappy_heron exited with code 0
+[0m
