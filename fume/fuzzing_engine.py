@@ -279,5 +279,5 @@ def run_fuzzing_engine(mm):
             handle_state(mm)
             mm.next_state()
         
-        time.sleep(5)
+        #time.sleep(5)
         control = False

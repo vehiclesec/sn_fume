@@ -16,6 +16,10 @@ def handle_console_response(proc):
 
         decoded_line = line.decode('utf-8', errors='ignore').lower()
         
+        if "[error] crasher:" in decoded_line:
+            g.crash_tally += 1
+            print(f"\n[!] Target process crash detected! Total crashes: {g.crash_tally}")
+        
         if "error" in decoded_line:
             pv.normal_print(f"\n\n\nKeyword 'error' detected in console message: {decoded_line.strip()}\n\n\n")
             cl.create_crash_directory()

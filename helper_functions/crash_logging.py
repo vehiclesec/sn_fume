@@ -30,4 +30,4 @@ def dump_request_queue(console_message=None):
     f.write("]")
     f.close()
 
-    print("Logged request queue to %s" % filename)
+    #print("Logged request queue to %s" % filename)

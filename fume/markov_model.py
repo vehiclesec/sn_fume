@@ -37,7 +37,7 @@ class Markov_Model():
             self.current_state.next, 
             weights=self.current_state.next_prob)[0]
 
-        print('Next state chosen: %s' % self.current_state.name)
+        #print('Next state chosen: %s' % self.current_state.name)
 
 def initialize_markov_model():
     mm = Markov_Model()

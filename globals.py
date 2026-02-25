@@ -18,12 +18,12 @@ FUZZING_STATE_UNIFORM_DISTRIBUTION = 1
 FUZZING_INTENSITY = 0.1
 CONSTRUCTION_INTENSITY = 3
 
-START_COMMAND = "docker-compose up"
+START_COMMAND = ""
 TARGET_START_TIME = 0.5
 
 user_supplied_X = [0, 0, 0]
 
-VERBOSITY = 3
+VERBOSITY = 0
 
 payload = []
 
@@ -31,6 +31,8 @@ protocol_version = 1
 
 network_response_log = {}
 console_response_log = {}
+
+crash_tally = 0
 
 SIMILARITY_THRESHOLD = 0.3
 
